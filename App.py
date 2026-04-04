@@ -1,13 +1,13 @@
 import streamlit as st
 import pandas as pd
+from sklearn.ensemble import RandomForestRegressor
 
 st.title("E-Commerce Sales Prediction")
 
 # Load data
 df = pd.read_excel("ecommerce_dataset.xlsx")
-
 # Convert date
-df['Order_Date'] = pd.to_datetime(df['Order_Date'], origin='1899-12-30', unit='D')
+df['Order_Date'] = pd.to_datetime(df['Order_Date'])
 df['Year'] = df['Order_Date'].dt.year
 df['Month'] = df['Order_Date'].dt.month
 df['Day'] = df['Order_Date'].dt.day
